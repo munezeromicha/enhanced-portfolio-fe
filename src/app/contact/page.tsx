@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { isValidEmail } from '@/lib/utils';
+import { Input } from '@/components/ui/Input';
+import { Button } from '@/components/ui/Button';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
