@@ -13,7 +13,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ title, description, image, tags, liveUrl, githubUrl }: ProjectCardProps) => {
   return (
-    <div className="group bg-white rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:-translate-y-2">
+    <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-gray-900/50 overflow-hidden transform transition-transform duration-300 hover:-translate-y-2">
       <div className="relative h-48 w-full">
         <Image
           src={image}
@@ -25,9 +25,9 @@ const ProjectCard = ({ title, description, image, tags, liveUrl, githubUrl }: Pr
       </div>
       
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{title}</h3>
         
-        <p className="mt-3 text-gray-600 text-sm">
+        <p className="mt-3 text-gray-600 dark:text-gray-300 text-sm">
           {description}
         </p>
         
@@ -35,7 +35,7 @@ const ProjectCard = ({ title, description, image, tags, liveUrl, githubUrl }: Pr
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm"
+              className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm"
             >
               {tag}
             </span>
@@ -47,7 +47,7 @@ const ProjectCard = ({ title, description, image, tags, liveUrl, githubUrl }: Pr
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-300"
+            className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
           >
             <Github className="w-5 h-5 mr-2" />
             Code
@@ -57,7 +57,7 @@ const ProjectCard = ({ title, description, image, tags, liveUrl, githubUrl }: Pr
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-300"
+            className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
           >
             <ExternalLink className="w-5 h-5 mr-2" />
             Live Demo
