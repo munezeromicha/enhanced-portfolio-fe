@@ -1,18 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Metadata } from 'next';
-import { Input } from '@/components/ui/Input';
-import { Button } from '@/components/ui/Button';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { isValidEmail } from '@/lib/utils';
 
-export const metadata: Metadata = {
-  title: 'Contact | MUNEZERO NTAGANIRA Michel - Portfolio',
-  description: 'Get in touch with me for collaboration, opportunities, or just to say hello.',
-};
-
-export default function ContactPage() {
+const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -209,4 +201,6 @@ export default function ContactPage() {
       </section>
     </main>
   );
-}
+};
+
+export default ContactPage;
