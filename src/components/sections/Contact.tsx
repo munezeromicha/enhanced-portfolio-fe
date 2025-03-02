@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -13,18 +14,37 @@ const Contact = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Update the handleSubmit function:
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            // Add your form submission logic here
-            await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
-            console.log('Form submitted:', formData);
-            // Reset form
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+            
+            if (!response.ok) throw new Error('Failed to send message');
+            
             setFormData({ name: '', email: '', subject: '', message: '' });
+            toast.success('Message sent successfully!', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
         } catch (error) {
             console.error('Error submitting form:', error);
+            toast.error('Failed to send message. Please try again.', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
         } finally {
             setIsSubmitting(false);
         }

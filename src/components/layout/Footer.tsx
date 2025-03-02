@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
+import NewsletterForm from '@/components/layout/NewsletterForm';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -47,7 +48,6 @@ const Footer = () => {
             </div>
           </div>
 
-
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -69,19 +69,7 @@ const Footer = () => {
             <p className="text-gray-400 mb-4">
               Subscribe to my newsletter for the latest updates and articles.
             </p>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-500"
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
 
